@@ -1,0 +1,9 @@
+<div
+  [@fadeAnimation]="animationState"
+  (@fadeAnimation.start)="onAnimationStart($event)"
+  (@fadeAnimation.done)="onAnimationDone($event)"
+  class="loading-container"
+  [ngStyle]="{backgroundColor: backgroundColor}"
+>
+  <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+</div>

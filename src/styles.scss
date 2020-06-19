@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+.margin-left {
+  margin-left: 15px !important;
+}
+
+.margin-right {
+  margin-right: 15px !important;
+}
+
+.margin-top {
+  margin-top: 15px !important;
+}
+
+.margin-bottom {
+  margin-bottom: 15px !important;
+}
+
+.title h2 {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+nz-form-item nz-form-control nz-select {
+  width: 100%;
+}
+
+/* ng-zorro */
+.ant-modal {
+  top: 50px;
+  width: 700px;
+}
+
+nz-table {
+  overflow: auto;
+}
+
+nz-table.no-placeholder .ant-table-placeholder {
+  display: none;
+}
+
+div.ant-menu-submenu.ant-menu-submenu-popup, div.ant-menu-submenu.ant-menu-submenu-popup > ul {
+  display: table;
+}
+
+.ant-descriptions-item-label {
+  white-space: normal;
+}
+
+nz-card.form-control {
+  background-color: #f7f7f7;
+}
+
+nz-button-group {
+  display: flex !important;
+}
