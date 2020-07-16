@@ -1,25 +1,37 @@
 <div class="container">
   <div class="header">
-    <div class="logo">
+    <div class="header__logo">
       Logo
     </div>
     <div class="search">
-      <input nz-input nzSize="large">
+      <div class="search__category"></div>
+
+      <nz-input-group class="search__input-wrapper" [nzSuffix]="suffixIconSearch" [nzSize]="'large'">
+        <input class="search__input" type="text" nz-input [nzSize]="'large'" placeholder="Search over 10,000 products"/>
+      </nz-input-group>
+      <ng-template #suffixIconSearch>
+        <i nz-icon nzType="search"></i>
+      </ng-template>
+
     </div>
-    <div class="contact">
+    <div class="header__contact">
       <div class="site-header__phone-title">Customer Service</div>
-      (800) 060-0730
+      <div class="site-header__phone-number">(800) 060-0730</div>
     </div>
   </div>
   <div class="nav-panel">
     <div class="nav-panel__container">
       <div class="nav-panel__category"></div>
       <div class="nav-panel__menu">
-        <div class="menu__item">Home</div>
+        <div class="menu__item">Главная</div>
         <div class="menu__item">Контакты</div>
         <div class="menu__item">О нас</div>
       </div>
-      <div class="nav-panel__cart"></div>
+      <div class="nav-panel__cart">
+        <nz-badge [nzCount]="9" [nzShowZero]="true" [nzDot]="false">
+          <i class="nav-panel__cart__icon" nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+        </nz-badge>
+      </div>
     </div>
   </div>
 </div>

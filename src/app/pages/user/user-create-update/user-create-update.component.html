@@ -1,0 +1,37 @@
+<h2>Пользователи</h2>
+<form nz-form [nzLayout]="'vertical'" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <nz-form-item>
+    <nz-form-label nzRequired>ФИО</nz-form-label>
+    <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+      <input type="text" nz-input formControlName="fullName">
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired>Номер телефона</nz-form-label>
+    <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+      <input type="text" nz-input formControlName="phoneNumber">
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label>Компания</nz-form-label>
+    <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+      <nz-select formControlName="companyId" nzAllowClear>
+        <nz-option [nzValue]="item.id" [nzLabel]="item.name" *ngFor="let item of companies"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control>
+      <button nz-button [nzType]="'primary'">Сохранить</button>
+      <button appBack nz-button nzType="default" type="button" class="margin-left">Назад</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+
+<ng-template #errorBlock let-control>
+  {{control.errors | validate}}
+</ng-template>
+
+

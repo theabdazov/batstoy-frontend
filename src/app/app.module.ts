@@ -13,6 +13,8 @@ import {NZ_I18N, ru_RU} from 'ng-zorro-antd/i18n';
 import {registerLocaleData} from '@angular/common';
 import ru from '@angular/common/locales/ru';
 import {InterceptorProviders} from './interceptor';
+import {NgZorroAntdModule, NzNotificationModule} from 'ng-zorro-antd';
+import {LoadingModule} from './modules/loading/loading.module';
 
 registerLocaleData(ru);
 
@@ -28,7 +30,9 @@ registerLocaleData(ru);
     NzMenuModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NzNotificationModule,
+    LoadingModule
   ],
   providers: [
     {provide: NZ_I18N, useValue: ru_RU},

@@ -7,7 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: AdminComponent,
-    children: []
+    children: [
+      {path: 'user', loadChildren: () => import('../user/user.module').then(m => m.UserModule)},
+      {path: 'company', loadChildren: () => import('../company/company.module').then(m => m.CompanyModule)}
+    ]
   },
 ];
 

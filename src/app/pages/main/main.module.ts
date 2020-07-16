@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
-import {NzIconModule, NzInputModule} from 'ng-zorro-antd';
+import {NzBadgeModule, NzIconModule, NzInputModule} from 'ng-zorro-antd';
 
 
 @NgModule({
@@ -12,7 +12,8 @@ import {NzIconModule, NzInputModule} from 'ng-zorro-antd';
     CommonModule,
     MainRoutingModule,
     NzIconModule,
-    NzInputModule
+    NzInputModule,
+    NzBadgeModule
   ]
 })
 export class MainModule { }
