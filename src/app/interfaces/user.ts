@@ -17,3 +17,12 @@ export interface UserAdding {
   phoneNumber: string;
   companyId: number;
 }
+
+export interface UserCredentials {
+  phoneNumber: string;
+  password: string;
+}
+
+export interface UserWithToken extends User {
+  token: string;
+}

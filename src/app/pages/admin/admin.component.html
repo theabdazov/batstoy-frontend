@@ -39,6 +39,10 @@
                [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
             ></i>
         </span>
+        <span class="user-control">
+          {{currentUser?.phoneNumber}}
+          <span class="logout-wrapper" (click)="logout()"><i nz-icon nzType="logout" nzTheme="outline"></i></span>
+        </span>
       </div>
     </nz-header>
     <nz-content>

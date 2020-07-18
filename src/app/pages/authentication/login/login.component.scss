@@ -1,0 +1,20 @@
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: silver;
+}
+
+.form {
+  max-width: 350px;
+  padding: 50px;
+  background-color: white;
+  display: table;
+  margin-top: 150px;
+}
+
+
+.button {
+  width: 100%;
+}

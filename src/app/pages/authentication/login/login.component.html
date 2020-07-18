@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <div class="form">
+    <form nz-form [formGroup]="formGroup" class="login-form" (ngSubmit)="onSubmit()" [nzLayout]="'vertical'">
+      <nz-form-item>
+        <nz-form-label nzRequired>Номер телефон</nz-form-label>
+        <nz-form-control nzErrorTip="Введите номер">
+          <nz-input-group nzPrefixIcon="user" [nzSize]="'large'">
+            <input type="text" nz-input formControlName="phoneNumber" placeholder="PhoneNumber" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label nzRequired>Пароль</nz-form-label>
+        <nz-form-control nzErrorTip="Введите пароль">
+          <nz-input-group nzPrefixIcon="lock" [nzSize]="'large'">
+            <input type="password" nz-input formControlName="password" placeholder="Password" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <button nz-button class="button" [nzSize]="'large'" [nzType]="'primary'">Log in</button>
+    </form>
+  </div>
+</div>
