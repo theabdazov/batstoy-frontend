@@ -20,5 +20,6 @@
         <button class="node__action" nz-button [nzSize]="'small'" [nzType]="'primary'" (click)="update(node)">Изменить</button>
         <button class="node__action" nz-button [nzSize]="'small'" [nzType]="'danger'" (click)="delete(node)">Удалить</button>
         <button class="node__action" nz-button [nzSize]="'small'" [nzType]="'dashed'" (click)="openModal(node.key)">Добавить под категорию</button>
+        <button class="node__action" nz-button [nzSize]="'small'" [nzType]="'dashed'" (click)="openCharacteristic(node.key)">Посмотрет характеристики</button>
       </span>
 </ng-template>
