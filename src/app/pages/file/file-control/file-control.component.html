@@ -1,0 +1,14 @@
+<div class="title">
+  <h2>Файлы</h2>
+  <button (click)="showModal()" nz-button [nzType]="'primary'" [nzSize]="'small'"> Добавить</button>
+</div>
+
+<div class="content">
+  <app-file-card *ngFor="let file of files" [file]="file" class="card"></app-file-card>
+</div>
+
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Добавить новый файл" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+  <input #fileInput type="file" nz-input (change)="onFileChange($event)">
+  <br/>
+</nz-modal>

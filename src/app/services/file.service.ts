@@ -19,6 +19,10 @@ export class FileService {
     return this.httpClient.get(`${this.url}/downloadFile/${fileName}`);
   }
 
+  getAll() {
+    return this.httpClient.get<FileData[]>(this.url);
+  }
+
   upload(file: File) {
     return this.uploadMultipleFiles([file]).pipe(
       map(files => files[0])

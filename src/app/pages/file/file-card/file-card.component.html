@@ -1,0 +1,11 @@
+<nz-card nzHoverable [nzBordered]="true" [nzCover]="coverTemplate"  [nzActions]="[actionSetting]">
+  <nz-card-meta [nzTitle]="file?.originalFilename"></nz-card-meta>
+</nz-card>
+<ng-template #coverTemplate>
+  <img class="image" alt="example" [src]="file?.path" />
+</ng-template>
+<ng-template #actionSetting>
+  <div (click)="copy()">
+    <i nz-icon nzType="copy" nzTheme="outline"></i>Копировать
+  </div>
+</ng-template>
