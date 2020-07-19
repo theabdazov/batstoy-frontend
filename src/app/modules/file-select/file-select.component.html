@@ -1,0 +1,13 @@
+<nz-input-group nzPrefixIcon="folder-open" [nzSuffix]="suffixIcon">
+  <input type="text" nz-input readonly [(ngModel)]="fileName" [disabled]="disable" (click)="open()">
+</nz-input-group>
+
+<ng-template #suffixIcon>
+  <i nz-icon nzType="close-circle" nzTheme="outline" (click)="clean()"></i>
+</ng-template>
+
+<input type="file" style="display:none" accept="image/*"
+       (change)="onFileChange($event)"
+       #fileInput
+/>
+

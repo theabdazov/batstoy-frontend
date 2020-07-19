@@ -1,0 +1,24 @@
+<div class="title">
+  <h2>Категории</h2>
+  <button nz-button [nzType]="'primary'" [nzSize]="'small'" (click)="openModal()"> Добавить</button>
+</div>
+
+
+<div>
+  <nz-tree
+    nzBlockNode
+    [nzData]="nodes"
+    [nzTreeTemplate]="nzTreeTemplate"
+    [nzShowLine]="true"
+  >
+  </nz-tree>
+</div>
+
+<ng-template #nzTreeTemplate let-node let-origin="origin">
+      <span class="custom-node">
+        <span class="node__name">{{ node.title }}</span>
+        <button class="node__action" nz-button [nzSize]="'small'" [nzType]="'primary'" (click)="update(node)">Изменить</button>
+        <button class="node__action" nz-button [nzSize]="'small'" [nzType]="'danger'" (click)="delete(node)">Удалить</button>
+        <button class="node__action" nz-button [nzSize]="'small'" [nzType]="'dashed'" (click)="openModal(node.key)">Добавить под категорию</button>
+      </span>
+</ng-template>
