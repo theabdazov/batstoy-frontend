@@ -1,0 +1,21 @@
+<div class="placeholder" (click)="open()">
+  <i class="placeholder__icon" nz-icon nzType="menu" nzTheme="outline"></i>
+  <div class="placeholder__text">{{label}}</div>
+  <i *ngIf="!categoryId" class="placeholder__icon_small" nz-icon nzType="down" nzTheme="outline"></i>
+  <i *ngIf="categoryId" routerLink="/" class="placeholder__icon_small" nz-icon nzType="close" nzTheme="outline"></i>
+</div>
+
+<ng-template cdkPortal>
+  <div class="root-list" (click)="overlayClose()">
+    <div class="root-list__item" *ngFor="let rootNode of categoryNodes">
+      <a class="root-list__href" [routerLink]="['/']" [queryParams]="{categoryId: rootNode.id}">{{rootNode.name}}</a>
+      <i *ngIf="rootNode.children && rootNode.children.length" class="root-list__icon" nz-icon nzType="right" nzTheme="outline"></i>
+      <div class="popup" *ngIf="rootNode.children && rootNode.children.length">
+        <div class="sub-list" *ngFor="let childNode of rootNode.children">
+          <a class="sub-list__title"  [routerLink]="['/']" [queryParams]="{categoryId: childNode.id}">{{childNode.name}}</a>
+          <a class="sub-list__item" *ngFor="let leafChild of childNode.children"  [routerLink]="['/']" [queryParams]="{categoryId: leafChild.id}">{{leafChild.name}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

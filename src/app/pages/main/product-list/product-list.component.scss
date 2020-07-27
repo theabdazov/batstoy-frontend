@@ -1,9 +1,10 @@
 .list {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -15px;
+  margin: 0 -8px;
 }
 
 .list__item {
-  margin: 15px;
+  margin: 8px;
+  width: calc(25% - 16px);
 }

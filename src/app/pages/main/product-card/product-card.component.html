@@ -1,0 +1,15 @@
+<div class="card" *ngIf="product">
+  <div class="btn__full">
+    <i nz-icon nzType="fullscreen" nzTheme="outline"></i>
+  </div>
+  <div class="card__image">
+    <img [src]="product.photos[0]" alt="name">
+  </div>
+  <div class="card__name">
+    <a class="card__href" href="google.com">{{product.name}}</a>
+  </div>
+  <div class="card__price">{{product.price}} Сом</div>
+  <div class="card__actions">
+    <button class="card__btn">В корзину</button>
+  </div>
+</div>

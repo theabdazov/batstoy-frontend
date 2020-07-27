@@ -1,0 +1,15 @@
+<div class="nav-panel">
+  <div class="nav-panel__container">
+    <app-category-list [categoryNodes]="categoryNodes"></app-category-list>
+    <div class="nav-panel__menu">
+      <a class="menu__item" routerLink="/">Главная</a>
+      <a class="menu__item" routerLink="/contacts">Контакты</a>
+      <a class="menu__item" routerLink="/about">О нас</a>
+    </div>
+    <div class="nav-panel__cart">
+      <nz-badge [nzCount]="9" [nzShowZero]="true" [nzDot]="false" [nzStyle]="{color: 'black', backgroundColor: 'white'}">
+        <i class="nav-panel__cart__icon" nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+      </nz-badge>
+    </div>
+  </div>
+</div>

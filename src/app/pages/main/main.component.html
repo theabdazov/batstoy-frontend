@@ -14,7 +14,7 @@
                       (ngModelChange)="filterChange()"
       ></nz-tree-select>
       <nz-input-group class="search__input-wrapper" [nzSuffix]="suffixIconSearch" [nzSize]="'large'">
-        <input [(ngModel)]="searchText" (change)="filterChange()" class="search__input" type="text" nz-input [nzSize]="'large'" placeholder="Поиск"/>
+        <input [(ngModel)]="searchText" (change)="filterChange()" class="search__input" type="text" nz-input [nzSize]="'large'" placeholder="Поиск товаров"/>
       </nz-input-group>
       <ng-template #suffixIconSearch>
         <i nz-icon nzType="search"></i>
