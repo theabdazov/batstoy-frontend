@@ -1,0 +1,39 @@
+<div class="title">
+  <h2>Продукты</h2>
+  <button nz-button [nzType]="'primary'" [nzSize]="'small'" routerLink="../create"> Добавить</button>
+</div>
+
+<nz-table #basicTable
+          [nzData]="products"
+          [nzPageIndex]="filter.page"
+          [nzPageSize]="filter.count"
+          [nzTotal]="totalCount"
+          (nzPageIndexChange)="pageChange($event)"
+          [nzFrontPagination]="false"
+>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Наименование</th>
+    <th>Краткое описание</th>
+    <th>Цена</th>
+    <th>Цена поставщика</th>
+    <th>Категория</th>
+    <th>Действия</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of basicTable.data">
+    <td>{{ data.id }}</td>
+    <td>{{ data.name }}</td>
+    <td>{{ data.desc }}</td>
+    <td>{{ data.price }}</td>
+    <td>{{ data.ownerPrice }}</td>
+    <td>{{ data.category?.name }}</td>
+    <td>
+      <button nz-button [nzSize]="'small'" [nzType]="'dashed'" [routerLink]="['../update', data.id]"> Изменить</button>
+      <button nz-button [nzSize]="'small'" [nzType]="'danger'" (click)="delete(data.id)">Удалить</button>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>

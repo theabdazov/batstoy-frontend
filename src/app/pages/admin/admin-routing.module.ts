@@ -11,7 +11,8 @@ const routes: Routes = [
       {path: 'user', loadChildren: () => import('../user/user.module').then(m => m.UserModule)},
       {path: 'company', loadChildren: () => import('../company/company.module').then(m => m.CompanyModule)},
       {path: 'category', loadChildren: () => import('../category/category.module').then(m => m.CategoryModule)},
-      {path: 'file', loadChildren: () => import('../file/file.module').then(m => m.FileModule)}
+      {path: 'file', loadChildren: () => import('../file/file.module').then(m => m.FileModule)},
+      {path: 'product', loadChildren: () => import('../product/product.module').then(m => m.ProductModule)},
     ]
   },
 ];

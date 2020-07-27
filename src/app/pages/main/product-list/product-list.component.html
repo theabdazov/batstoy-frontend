@@ -1,0 +1,9 @@
+<div class="list">
+  <div class="list__item" *ngFor="let product of products">
+    <app-product-card [product]="product"></app-product-card>
+  </div>
+</div>
+
+<div class="pagination">
+  <nz-pagination [nzTotal]="totalCount" [nzPageSize]="filter.count" [nzPageIndex]="filter.page" (nzPageIndexChange)="pageChange($event)"></nz-pagination>
+</div>

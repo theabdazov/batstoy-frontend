@@ -1,0 +1,66 @@
+<h2>Товар</h2>
+<form nz-form [nzLayout]="'vertical'" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <nz-form-item>
+    <nz-form-label nzRequired>Наименование</nz-form-label>
+    <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+      <input type="text" nz-input formControlName="name">
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired>Краткая описания</nz-form-label>
+    <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+      <textarea nz-input formControlName="desc"></textarea>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired>Цена от поставщика</nz-form-label>
+    <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+      <input type="number" nz-input formControlName="ownerPrice">
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label nzRequired>Цена</nz-form-label>
+    <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+      <input type="number" nz-input formControlName="price">
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label nzRequired>Статус</nz-form-label>
+    <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+      <nz-select formControlName="active">
+        <nz-option [nzValue]="true" [nzLabel]="'Активный'"></nz-option>
+        <nz-option [nzValue]="false" [nzLabel]="'Не активный'"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label>Категория</nz-form-label>
+    <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+      <nz-tree-select [nzNodes]="categoryNodes" [nzMultiple]="false" formControlName="categoryId">
+      </nz-tree-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label>Фотографии</nz-form-label>
+    <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+      <app-images-upload formControlName="photos"></app-images-upload>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control>
+      <button nz-button [nzType]="'primary'">Сохранить</button>
+      <button appBack nz-button nzType="default" type="button" class="margin-left">Назад</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+
+<ng-template #errorBlock let-control>
+  {{control.errors | validate}}
+</ng-template>
+
+
