@@ -3,7 +3,15 @@ import {CommonModule} from '@angular/common';
 
 import {MainRoutingModule} from './main-routing.module';
 import {MainComponent} from './main.component';
-import {NzBadgeModule, NzIconModule, NzInputModule, NzPaginationModule, NzTreeSelectModule} from 'ng-zorro-antd';
+import {
+  NzBackTopModule,
+  NzBadgeModule,
+  NzIconModule,
+  NzInputModule,
+  NzModalModule,
+  NzPaginationModule,
+  NzTreeSelectModule
+} from 'ng-zorro-antd';
 import {ProductListComponent} from './product-list/product-list.component';
 import {CartComponent} from './cart/cart.component';
 import {ProductCardComponent} from './product-card/product-card.component';
@@ -13,6 +21,7 @@ import {CategoryListComponent} from './category-list/category-list.component';
 import {PortalModule} from '@angular/cdk/portal';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {FormsModule} from '@angular/forms';
+import {NgxGalleryModule} from '@kolkov/ngx-gallery';
 
 
 @NgModule({
@@ -33,9 +42,12 @@ import {FormsModule} from '@angular/forms';
     NzBadgeModule,
     NzPaginationModule,
     NzTreeSelectModule,
+    NzModalModule,
     PortalModule,
     OverlayModule,
-    FormsModule
+    FormsModule,
+    NgxGalleryModule,
+    NzBackTopModule
   ]
 })
 export class MainModule {

@@ -1,6 +1,6 @@
 import {Pagination} from './pagination';
-import {FileData} from './file-data';
 import {Category} from './category';
+import {CharacteristicValue, CharacteristicValueAdding} from './characteristic-value';
 
 export interface Product {
   id: number;
@@ -11,6 +11,7 @@ export interface Product {
   price: number;
   photos: string[];
   category: Category;
+  characteristicValues: CharacteristicValue[];
 }
 
 export interface ProductAdding {
@@ -21,6 +22,7 @@ export interface ProductAdding {
   active: boolean;
   photos: string[];
   categoryId: number;
+  characteristicValues: CharacteristicValueAdding[];
 }
 
 export interface ProductFilter extends Pagination {
@@ -40,4 +42,8 @@ export interface ProductShortPublic {
 export interface ProductFilterPublic extends Pagination {
   name: string;
   categoryId: number;
+}
+
+export interface ProductDetailPublic extends ProductShortPublic {
+  characteristicValues: CharacteristicValueAdding[];
 }

@@ -14,7 +14,7 @@ export class ProductControlComponent implements OnInit {
     id: null,
     categoryIds: [],
     name: null,
-    count: 5,
+    count: 10,
     page: 1
   };
   products: Product[] = [];
@@ -48,7 +48,7 @@ export class ProductControlComponent implements OnInit {
     );
   }
 
-  pageChange(event: any) {
+  pageChange(event: number) {
     this.filter.page = event;
     this.getData();
   }

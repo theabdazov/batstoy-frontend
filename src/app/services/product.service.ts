@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Product, ProductAdding, ProductFilter, ProductFilterPublic, ProductShortPublic} from '../interfaces/product';
+import {Product, ProductAdding, ProductDetailPublic, ProductFilter, ProductFilterPublic, ProductShortPublic} from '../interfaces/product';
 import {PaginationPage} from '../interfaces/pagination';
 
 @Injectable({
@@ -37,6 +37,10 @@ export class ProductService {
 
   getProductListPublic(filter: ProductFilterPublic) {
     return this.httpClient.post<PaginationPage<ProductShortPublic>>(`${this.url}/list-public`, filter);
+  }
+
+  getByIdPublic(id: number) {
+    return this.httpClient.get<ProductDetailPublic>(`${this.url}/${id}/public`);
   }
 
 }

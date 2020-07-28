@@ -51,6 +51,16 @@
     </nz-form-control>
   </nz-form-item>
 
+  <h3>Харатеристики</h3>
+  <nz-form-item *ngFor="let characteristic of characteristics">
+    <nz-form-label nzRequired>{{characteristic.name}}</nz-form-label>
+    <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+      <input type="text" nz-input [nzAutocomplete]="auto" [(ngModel)]="characteristicValueMap[characteristic.id]" [ngModelOptions]="{standalone: true}">
+      <nz-autocomplete [nzDataSource]="characteristic.valueList" nzBackfill #auto></nz-autocomplete>
+    </nz-form-control>
+  </nz-form-item>
+
+
   <nz-form-item>
     <nz-form-control>
       <button nz-button [nzType]="'primary'">Сохранить</button>

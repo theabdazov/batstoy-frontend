@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Company} from '../../../interfaces/company';
 import {Location} from '@angular/common';
 import {NotificationService} from '../../../services/notification.service';
 import {ActivatedRoute} from '@angular/router';
@@ -9,6 +8,10 @@ import {ProductService} from '../../../services/product.service';
 import {CategoryService} from '../../../services/category.service';
 import {NzTreeNodeOptions} from 'ng-zorro-antd';
 import {CategoryNode} from '../../../interfaces/category';
+import {Characteristic} from '../../../interfaces/characteristic';
+import {CharacteristicService} from '../../../services/characteristic.service';
+import {ProductAdding} from '../../../interfaces/product';
+import {CharacteristicValueAdding} from '../../../interfaces/characteristic-value';
 
 @Component({
   selector: 'app-product-create-update',
@@ -20,6 +23,8 @@ export class ProductCreateUpdateComponent implements OnInit {
   formGroup: FormGroup;
   productId: number;
   categoryNodes: NzTreeNodeOptions[] = [];
+  characteristics: Characteristic[] = [];
+  characteristicValueMap: { [key: string]: string } = {};
 
   constructor(
     private productService: ProductService,
@@ -27,7 +32,8 @@ export class ProductCreateUpdateComponent implements OnInit {
     private location: Location,
     private notificationService: NotificationService,
     private activatedRoute: ActivatedRoute,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private characteristicService: CharacteristicService
   ) {
   }
 
@@ -38,6 +44,14 @@ export class ProductCreateUpdateComponent implements OnInit {
     if (this.productId) {
       this.getProduct();
     }
+  }
+
+  getCharacteristic(categoryId: number): void {
+    this.characteristicService.getByCategoryId(categoryId).subscribe(
+      response => {
+        this.characteristics = response;
+      }
+    );
   }
 
   getCategories(): void {
@@ -68,7 +82,14 @@ export class ProductCreateUpdateComponent implements OnInit {
     this.productService.getById(this.productId).subscribe(
       response => {
         if (response) {
-          this.formGroup.patchValue({...response, categoryId: '3'});
+          this.characteristicValueMap = {};
+          this.formGroup.patchValue({...response, categoryId: response.category.id.toString()});
+          this.getCharacteristic(response.category.id);
+          if (response.characteristicValues && response.characteristicValues.length) {
+            response.characteristicValues.forEach(item => {
+              this.characteristicValueMap[item.characteristic.id] = item.value;
+            });
+          }
         }
       }
     );
@@ -81,10 +102,20 @@ export class ProductCreateUpdateComponent implements OnInit {
       desc: [null, [Validators.required]],
       ownerPrice: [null, [Validators.required]],
       price: [null, [Validators.required]],
-      active: [null],
-      photos: [null],
-      categoryId: [null],
+      active: [null, [Validators.required]],
+      photos: [null, [Validators.required]],
+      categoryId: [null, [Validators.required]],
     });
+
+    this.formGroup.controls.categoryId.valueChanges.subscribe(
+      value => {
+        if (value) {
+          this.characteristicValueMap = {};
+          this.characteristics = [];
+          this.getCharacteristic(value);
+        }
+      }
+    );
   }
 
   onSubmit() {
@@ -102,10 +133,23 @@ export class ProductCreateUpdateComponent implements OnInit {
   }
 
   request() {
+    const characteristicValueAdding: CharacteristicValueAdding[] = Object.keys(this.characteristicValueMap)
+      .filter(key => this.characteristicValueMap[key])
+      .map(key => {
+        return {
+          characteristicId: parseInt(key, 10),
+          value: this.characteristicValueMap[key]
+        };
+      });
+    const productAdding: ProductAdding = {
+      ...this.formGroup.value,
+      characteristicValues: characteristicValueAdding
+    };
+
     if (this.productId) {
-      return this.productService.update(this.productId, this.formGroup.value);
+      return this.productService.update(this.productId, productAdding);
     } else {
-      return this.productService.create(this.formGroup.value);
+      return this.productService.create(productAdding);
     }
   }
 

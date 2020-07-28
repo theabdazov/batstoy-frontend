@@ -5,6 +5,7 @@ import { ProductRoutingModule } from './product-routing.module';
 import { ProductControlComponent } from './product-control/product-control.component';
 import { ProductCreateUpdateComponent } from './product-create-update/product-create-update.component';
 import {
+  NzAutocompleteModule,
   NzButtonModule,
   NzFormModule, NzIconModule,
   NzInputModule, NzModalModule,
@@ -13,7 +14,7 @@ import {
   NzTreeSelectModule,
   NzUploadModule
 } from 'ng-zorro-antd';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LocationBackModule} from '../../modules/location-back/location-back.module';
 import {ValidatePipeModule} from '../../modules/validate-pipe/validate-pipe.module';
 import { ImagesUploadComponent } from './images-upload/images-upload.component';
@@ -35,7 +36,9 @@ import { ImagesUploadComponent } from './images-upload/images-upload.component';
     ValidatePipeModule,
     NzUploadModule,
     NzIconModule,
-    NzModalModule
+    NzModalModule,
+    NzAutocompleteModule,
+    FormsModule
   ]
 })
 export class ProductModule { }

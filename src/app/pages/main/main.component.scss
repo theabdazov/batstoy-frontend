@@ -1,6 +1,7 @@
 .container {
   height: 100%;
   width: 100%;
+  overflow: auto;
 }
 
 
@@ -58,4 +59,5 @@
 .content {
   margin: 0 auto;
   width: 1115px;
+  padding: 20px  0;
 }

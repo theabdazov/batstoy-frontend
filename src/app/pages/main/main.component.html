@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" #container>
   <div class="header">
     <div class="header__logo">
       Logo
@@ -30,4 +30,5 @@
   <div class="content">
     <router-outlet></router-outlet>
   </div>
+  <nz-back-top [nzTarget]="container" [nzVisibilityHeight]="200"></nz-back-top>
 </div>
