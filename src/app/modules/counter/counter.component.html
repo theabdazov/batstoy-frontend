@@ -1,0 +1,9 @@
+<div class="input-group">
+  <div class="input-group__icon" (click)="decrement()">
+    <i nz-icon nzType="minus" nzTheme="outline"></i>
+  </div>
+  <input class="input" min="1" max="5" [(ngModel)]="value" (change)="onChanged()" type="number">
+  <div class="input-group__icon" (click)="increment()">
+    <i nz-icon nzType="plus" nzTheme="outline"></i>
+  </div>
+</div>

@@ -46,4 +46,5 @@ export interface ProductFilterPublic extends Pagination {
 
 export interface ProductDetailPublic extends ProductShortPublic {
   characteristicValues: CharacteristicValueAdding[];
+  desc: string;
 }

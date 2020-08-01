@@ -3,8 +3,9 @@
   border: 1.5px solid #ededed;
   transition: 400ms;
   box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  outline: none;
 
-  &:hover {
+  &:hover, &:focus {
     border-color: #b1b1b1;
 
     .btn__full {

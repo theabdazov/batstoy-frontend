@@ -1,0 +1,83 @@
+.wrapper {
+  display: flex;
+}
+
+.photos {
+}
+
+.desc {
+  padding-left: 50px;
+}
+
+.desc__name {
+  color: rgb(61, 70, 77);
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.desc__desc {
+  font-size: 16px;
+  color: rgb(61, 70, 77);
+  font-weight: 400;
+}
+
+.desc__price {
+  margin-top: 18px;
+  margin-bottom: 14px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -.03em;
+  color: #3d464d;
+}
+
+.desc__btns {
+  display: flex;
+}
+
+.ngx-gallery {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.btn-add-card {
+  height: 46px;
+  background: #c33;
+  color: #fff;
+  border: none;
+  padding: 0 30px;
+  margin-left: 10px;
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 2px;
+  transition: 150ms;
+
+  &:focus {
+    border-width: 0;
+    outline: none;
+  }
+
+  &:hover {
+    background: #3d464d;
+  }
+}
+
+.characteristic__title {
+  color: rgb(61, 70, 77);
+  font-size: 24px;
+  font-weight: 700;
+  margin: 40px 0 15px 0;
+}
+
+.table__row {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.table__name {
+  color: #999;
+}
+
+.table__value{
+  color: rgb(61, 70, 77);
+}
+

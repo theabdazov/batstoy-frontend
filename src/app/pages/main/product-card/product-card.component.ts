@@ -20,7 +20,8 @@ export class ProductCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openModal(): void {
+  openModal(event: MouseEvent): void {
+    event.stopPropagation();
     this.nzModalService.create({
       nzContent: ProductQuickPreviewComponent,
       nzComponentParams: {

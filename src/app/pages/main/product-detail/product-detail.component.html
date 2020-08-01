@@ -1,0 +1,36 @@
+<div class="wrapper" *ngIf="product">
+  <div class="photos">
+    <ngx-gallery *ngIf="galleryImages && galleryImages.length" [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+  </div>
+  <div class="desc">
+    <h1 class="desc__name">
+      {{product.name}}
+    </h1>
+    <div class="desc__desc">
+      {{product.desc}}
+    </div>
+    <div class="desc__price">
+      {{product.price}} сом
+    </div>
+    <div class="desc__btns">
+      <app-counter [(value)]="count"></app-counter>
+      <button class="btn-add-card">В корзину</button>
+    </div>
+    <div class="characteristic">
+      <h3 class="characteristic__title">Характеристики</h3>
+      <div class="characteristic__table">
+        <nz-table #basicTable
+                  [nzData]="product.characteristicValues"
+                  [nzFrontPagination]="false"
+                  [nzShowPagination]="false">
+          <tbody>
+          <tr *ngFor="let data of basicTable.data" class="table__row">
+            <td class="table__name">{{data.characteristic?.name}}</td>
+            <td class="table__value">{{data.value}}</td>
+          </tr>
+          </tbody>
+        </nz-table>
+      </div>
+    </div>
+  </div>
+</div>

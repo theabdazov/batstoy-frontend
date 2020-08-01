@@ -9,7 +9,7 @@ import {
   NzIconModule,
   NzInputModule,
   NzModalModule,
-  NzPaginationModule,
+  NzPaginationModule, NzTableModule,
   NzTreeSelectModule
 } from 'ng-zorro-antd';
 import {ProductListComponent} from './product-list/product-list.component';
@@ -22,6 +22,8 @@ import {PortalModule} from '@angular/cdk/portal';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {FormsModule} from '@angular/forms';
 import {NgxGalleryModule} from '@kolkov/ngx-gallery';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import {CounterModule} from '../../modules/counter/counter.module';
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import {NgxGalleryModule} from '@kolkov/ngx-gallery';
     ProductCardComponent,
     ProductQuickPreviewComponent,
     NavPanelComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    ProductDetailComponent
   ],
   imports: [
     CommonModule,
@@ -47,7 +50,9 @@ import {NgxGalleryModule} from '@kolkov/ngx-gallery';
     OverlayModule,
     FormsModule,
     NgxGalleryModule,
-    NzBackTopModule
+    NzBackTopModule,
+    CounterModule,
+    NzTableModule
   ]
 })
 export class MainModule {
