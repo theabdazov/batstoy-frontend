@@ -15,6 +15,7 @@ const routes: Routes = [
       {path: 'product/:id', component: ProductDetailComponent},
       {path: 'cart', component: CartComponent},
       {path: 'about', loadChildren: () => import('../about/about.module').then(m => m.AboutModule)},
+      {path: 'contacts', loadChildren: () => import('../contacts/contacts.module').then(m => m.ContactsModule)},
     ]
   }
 ];
