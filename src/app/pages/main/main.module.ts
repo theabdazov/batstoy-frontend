@@ -5,11 +5,11 @@ import {MainRoutingModule} from './main-routing.module';
 import {MainComponent} from './main.component';
 import {
   NzBackTopModule,
-  NzBadgeModule,
+  NzBadgeModule, NzButtonModule, NzDropDownModule, NzFormModule,
   NzIconModule,
   NzInputModule,
   NzModalModule,
-  NzPaginationModule, NzTableModule,
+  NzPaginationModule, NzResultModule, NzTableModule,
   NzTreeSelectModule
 } from 'ng-zorro-antd';
 import {ProductListComponent} from './product-list/product-list.component';
@@ -20,10 +20,12 @@ import {NavPanelComponent} from './nav-panel/nav-panel.component';
 import {CategoryListComponent} from './category-list/category-list.component';
 import {PortalModule} from '@angular/cdk/portal';
 import {OverlayModule} from '@angular/cdk/overlay';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgxGalleryModule} from '@kolkov/ngx-gallery';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import {CounterModule} from '../../modules/counter/counter.module';
+import { OrderComponent } from './order/order.component';
+import {ValidatePipeModule} from '../../modules/validate-pipe/validate-pipe.module';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import {CounterModule} from '../../modules/counter/counter.module';
     ProductQuickPreviewComponent,
     NavPanelComponent,
     CategoryListComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    OrderComponent
   ],
   imports: [
     CommonModule,
@@ -52,7 +55,13 @@ import {CounterModule} from '../../modules/counter/counter.module';
     NgxGalleryModule,
     NzBackTopModule,
     CounterModule,
-    NzTableModule
+    NzTableModule,
+    NzDropDownModule,
+    NzFormModule,
+    ReactiveFormsModule,
+    ValidatePipeModule,
+    NzResultModule,
+    NzButtonModule
   ]
 })
 export class MainModule {

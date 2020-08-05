@@ -16,6 +16,11 @@
 .header__logo {
   width: 250px;
   margin-right: 40px;
+  cursor: pointer;
+
+  &:focus{
+    outline: none;
+  }
 }
 
 .search {

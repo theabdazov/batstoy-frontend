@@ -43,4 +43,8 @@ export class ProductService {
     return this.httpClient.get<ProductDetailPublic>(`${this.url}/${id}/public`);
   }
 
+  getByIdsPublic(ids: number[]) {
+    return this.httpClient.post<ProductShortPublic[]>(`${this.url}/ids`, ids);
+  }
+
 }

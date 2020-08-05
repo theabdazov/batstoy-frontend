@@ -1,1 +1,43 @@
-<p>cart works!</p>
+<div class="wrapper">
+  <h1 class="title">Корзина</h1>
+  <nz-table #basicTable [nzData]="products" [nzShowPagination]="false" [nzFrontPagination]="false">
+    <thead>
+    <tr>
+      <th>Код товара</th>
+      <th>Фото</th>
+      <th>Товар</th>
+      <th>Цена</th>
+      <th>Количество</th>
+      <th>Итого</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.id }}</td>
+      <td><img class="product-photo" [src]="data.photos[0]" alt="Картинка"></td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.price}} сом</td>
+      <td>
+        <app-counter [value]="cartMap[data.id]" (valueChange)="updateCount(data.id, $event)"></app-counter>
+      </td>
+      <td>{{data.price * cartMap[data.id]}} сом</td>
+      <td>
+        <div>
+          <div class="close-icon" (click)="delete(data.id)">
+            <i nz-icon nzType="close" nzTheme="outline"></i>
+          </div>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </nz-table>
+  <div class="total">
+    Итого: {{totalPrice}} сом
+  </div>
+  <div class="buttons">
+    <button class="btn btn__default" routerLink="/">Продолжить покупку</button>
+    <button class="btn btn__primary" routerLink="/order">Оформить заказ</button>
+  </div>
+</div>
+

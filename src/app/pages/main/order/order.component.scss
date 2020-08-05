@@ -1,0 +1,57 @@
+.wrapper {
+  width: 100%;
+}
+
+.title {
+  color: rgb(61, 70, 77);
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.card-title {
+  color: rgb(61, 70, 77);
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.card {
+  border: 2px solid #f0f0f0;
+  padding: 30px;
+}
+
+.total {
+  color: rgb(61, 70, 77);
+  font-size: 20px;
+  font-weight: 700;
+  text-align: end;
+  margin: 10px 0;
+}
+
+.btn {
+  border-radius: 2px;
+  transition: all .1s ease-in-out;
+  font-size: 1rem;
+  height: calc(2.25rem + 2px);
+  line-height: 1.5;
+  padding: .375rem 1.25rem;
+  font-weight: 500;
+  border-width: 0;
+  border-color: #c33;
+  background: #c33;
+  color: #fff;
+  fill: #fff;
+  width: 100%;
+
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    border-color: #3d464d;
+    background: #3d464d;
+    color: #fff;
+    fill: #fff;
+    outline: none;
+  }
+}

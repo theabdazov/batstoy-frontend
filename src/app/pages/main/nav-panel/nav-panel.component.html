@@ -6,10 +6,36 @@
       <a class="menu__item" routerLink="/contacts">Контакты</a>
       <a class="menu__item" routerLink="/about">О нас</a>
     </div>
-    <div class="nav-panel__cart">
-      <nz-badge [nzCount]="9" [nzShowZero]="true" [nzDot]="false" [nzStyle]="{color: 'black', backgroundColor: 'white'}">
+    <div class="nav-panel__cart" nz-dropdown nzTrigger="click" [(nzVisible)]="visible" [nzDropdownMenu]="menu" [nzPlacement]="'bottomRight'">
+      <nz-badge [nzCount]="cartProductCount" [nzShowZero]="true" [nzDot]="false" [nzStyle]="{color: 'black', backgroundColor: 'white'}">
         <i class="nav-panel__cart__icon" nz-icon nzType="shopping-cart" nzTheme="outline"></i>
       </nz-badge>
     </div>
   </div>
 </div>
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <div class="popup">
+    <div class="popup__list">
+      <div class="item" *ngFor="let product of products">
+        <img class="item__photo" [src]="product.photos[0]" alt="photo">
+        <div class="item__desc">
+          <a class="item__product-name" [routerLink]="['/product', product.id]">{{product.name}}</a>
+          <div class="item__product-count">{{cartMap[product.id]}} x <span class="item__product-price">{{product.price}} сом </span></div>
+        </div>
+        <div class="close-icon" (click)="delete(product.id)">
+          <i nz-icon nzType="close" nzTheme="outline"></i>
+        </div>
+      </div>
+    </div>
+    <div class="popup__summary">
+      <div class="summary__row">
+        <div class="summary__label">Итого</div>
+        <div class="summary__value">{{totalPrice}} сом</div>
+      </div>
+    </div>
+    <div class="popup__buttons">
+      <button class="btn btn__default" routerLink="/cart" (click)="close()">Перейти в корзину</button>
+      <button class="btn btn__primary" routerLink="/order" (click)="close()">Оформить заказ</button>
+    </div>
+  </div>
+</nz-dropdown-menu>

@@ -1,0 +1,80 @@
+<div class="wrapper">
+  <h1 class="title">Оформеление заказа</h1>
+  <ng-container *ngIf="!isSuccess">
+    <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+      <div nz-col nzLg="16" nzMd="24" nzSm="24" nzXs="24">
+        <div class="card">
+          <h3 class="card-title">Данные заказчика</h3>
+          <form nz-form [nzLayout]="'vertical'" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+            <nz-form-item>
+              <nz-form-label nzRequired>Введите ваше ФИО</nz-form-label>
+              <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+                <input type="text" nz-input formControlName="customerFullName">
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-label nzRequired>Номер телефона</nz-form-label>
+              <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+                <input type="text" nz-input formControlName="customerPhoneNumber">
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+              <nz-form-label nzRequired>Адрес для доставки</nz-form-label>
+              <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+                <textarea nz-input formControlName="address"></textarea>
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+              <nz-form-label>Коментарии (не обязательно)</nz-form-label>
+              <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+                <textarea nz-input formControlName="comment"></textarea>
+              </nz-form-control>
+            </nz-form-item>
+          </form>
+
+        </div>
+      </div>
+      <div nz-col nzLg="8" nzMd="24" nzSm="24" nzXs="24">
+        <div class="card">
+          <h3 class="card-title">Ваш заказ</h3>
+          <nz-table #basicTable [nzData]="products" [nzShowPagination]="false" [nzFrontPagination]="false">
+            <thead>
+            <tr>
+              <th>Товар</th>
+              <th>Итого</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let data of basicTable.data">
+              <td>{{ data.name }} x {{cartMap[data.id]}}</td>
+              <td>{{data.price * cartMap[data.id]}} сом</td>
+            </tr>
+            </tbody>
+          </nz-table>
+          <div class="total">
+            Итого: {{totalPrice}} сом
+          </div>
+          <button class="btn" (click)="onSubmit()">Оформить заказ</button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isSuccess">
+    <nz-result
+      nzStatus="success"
+      nzTitle="Ваш заказ успешно оформлено"
+      nzSubTitle="Течение 15 минут менеджер с вами свяжется"
+    >
+      <div nz-result-extra>
+        <button nz-button routerLink="/">На главную</button>
+      </div>
+    </nz-result>
+  </ng-container>
+
+</div>
+
+<ng-template #errorBlock let-control>
+  {{control.errors | validate}}
+</ng-template>
