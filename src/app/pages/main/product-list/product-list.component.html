@@ -1,5 +1,5 @@
-<div class="list">
-  <div class="list__item" *ngFor="let product of products">
+<div class="list" nz-row [nzGutter]="[{ xs: 8, sm: 16, md: 24, lg: 32 }, { xs: 8, sm: 16, md: 24, lg: 32 }]">
+  <div class="list__item" *ngFor="let product of products" nz-col nzLg="6" nzMd="8" nzSm="12" nzXs="24">
     <app-product-card [product]="product"></app-product-card>
   </div>
 </div>
