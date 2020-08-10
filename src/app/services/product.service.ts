@@ -36,7 +36,7 @@ export class ProductService {
   }
 
   getProductListPublic(filter: ProductFilterPublic) {
-    return this.httpClient.post<PaginationPage<ProductShortPublic>>(`${this.url}/list-public`, filter);
+    return this.httpClient.post<PaginationPage<ProductShortPublic>>(`${this.url}/list-public`, {...filter, page: filter.page - 1});
   }
 
   getByIdPublic(id: number) {
