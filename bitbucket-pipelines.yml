@@ -1,0 +1,23 @@
+image: node:10.15.3
+
+pipelines:
+  default:
+    - step:
+        name: Build
+        caches:
+          - node
+        script:
+          - npm install 
+          - npm run build
+        artifacts:
+          - dist/**
+    - step:
+        name: Deploy artifacts using SCP to PROD
+        deployment: production
+        script:
+          - pipe: atlassian/scp-deploy:0.3.3
+            variables:
+              USER: $SSH_USER
+              SERVER: $SERVER
+              REMOTE_PATH: '/usr/share/nginx/html'
+              LOCAL_PATH: 'dist/shop-frontend/*'
