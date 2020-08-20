@@ -1,8 +1,9 @@
-<div class="wrapper" *ngIf="product">
-  <div class="photos">
-    <ngx-gallery *ngIf="galleryImages && galleryImages.length" [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+<div nz-row [nzGutter]="16">
+  <div nz-col [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="12">
+    <ngx-gallery *ngIf="galleryImages && galleryImages.length" [options]="galleryOptions" [images]="galleryImages"
+                 class="ngx-gallery"></ngx-gallery>
   </div>
-  <div class="desc">
+  <div nz-col [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="12">
     <h1 class="desc__name">
       {{product.name}}
     </h1>

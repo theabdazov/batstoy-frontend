@@ -15,26 +15,25 @@ export class ProductDetailComponent implements OnInit {
   productId: number;
   galleryOptions: NgxGalleryOptions[] = [
     {
-      width: '600px',
+      width: '100%',
       height: '600px',
       thumbnailsColumns: 4,
       imageAnimation: NgxGalleryAnimation.Slide,
-      imageSwipe: false
-    },
-    // max-width 800
-    {
-      breakpoint: 800,
-      width: '100%',
-      height: '600px',
+      // imageSwipe: false,
       imagePercent: 80,
       thumbnailsPercent: 20,
       thumbnailsMargin: 20,
       thumbnailMargin: 20
     },
+    // max-width 800
+    {
+      width: '100%',
+      height: '600px',
+    },
     // max-width 400
     {
       breakpoint: 400,
-      preview: false
+      height: '600px',
     }
   ];
   galleryImages: NgxGalleryImage[] = [];
