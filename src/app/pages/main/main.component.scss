@@ -19,7 +19,7 @@
   margin-right: 40px;
   cursor: pointer;
 
-  &:focus{
+  &:focus {
     outline: none;
   }
 }
@@ -61,10 +61,19 @@
   font-size: 20px;
   font-weight: 700;
   margin-top: -5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.whatsaap-icon {
+  font-size: 15px;
+  margin-right: 5px;
+  color: green;
 }
 
 .content {
   margin: 0 auto;
   max-width: 1115px;
-  padding: 20px  0;
+  padding: 20px 0;
 }

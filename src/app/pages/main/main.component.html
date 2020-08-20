@@ -14,16 +14,17 @@
                       (ngModelChange)="filterChange()"
       ></nz-tree-select>
       <nz-input-group class="search__input-wrapper" [nzSuffix]="suffixIconSearch" [nzSize]="'large'">
-        <input [(ngModel)]="searchText" (change)="filterChange()" class="search__input" type="text" nz-input [nzSize]="'large'" placeholder="Поиск товаров"/>
+        <input [(ngModel)]="searchText" (change)="filterChange()" class="search__input" type="text" nz-input
+               [nzSize]="'large'" placeholder="Поиск товаров"/>
       </nz-input-group>
       <ng-template #suffixIconSearch>
         <i nz-icon nzType="search"></i>
       </ng-template>
-
     </div>
     <div class="header__contact">
       <div class="site-header__phone-title">Обслуживание клиентов</div>
-      <div class="site-header__phone-number">(505) 12-12-21</div>
+      <div class="site-header__phone-number"><i class="whatsaap-icon" nz-icon nzType="whats-app" nzTheme="outline"></i> (700) 352 362</div>
+      <div class="site-header__phone-number">(554) 374 254</div>
     </div>
   </div>
   <app-nav-panel [categoryNodes]="categoryNodes"></app-nav-panel>
