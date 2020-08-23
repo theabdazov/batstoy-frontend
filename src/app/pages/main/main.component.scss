@@ -14,14 +14,33 @@
   flex-wrap: wrap;
 }
 
-.header__logo {
+.header__logo-block {
   width: 250px;
-  margin-right: 40px;
+  margin-right: 20px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
 
   &:focus {
     outline: none;
   }
+}
+
+.logo__desc{
+  margin-left: 5px;
+}
+
+.logo__title {
+  margin-bottom: 0;
+  font-weight: 700;
+  color: #3d464d;
+}
+
+.logo__subtitle {
+  color: #3d464d;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .search {

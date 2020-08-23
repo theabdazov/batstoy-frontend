@@ -1,7 +1,11 @@
 <div class="container" #container>
   <div class="header">
-    <div class="header__logo" routerLink="/">
-      <img src="assets/img/1.png" alt="">
+    <div class="header__logo-block" routerLink="/">
+      <img class="logo" src="assets/img/logo.png" alt="">
+      <div class="logo__desc">
+        <h1 class="logo__title">БатСтрой</h1>
+        <div class="logo__subtitle">Онлайн магазин строительных материалов</div>
+      </div>
     </div>
     <div class="search">
       <nz-tree-select [nzDropdownMatchSelectWidth]="false"
