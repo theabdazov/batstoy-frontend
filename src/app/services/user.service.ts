@@ -7,7 +7,7 @@ import {User, UserAdding, UserFilter} from '../interfaces/user';
 })
 export class UserService {
 
-  private url = 'api/users';
+  private url = '/api/users';
 
   constructor(
     private httpClient: HttpClient

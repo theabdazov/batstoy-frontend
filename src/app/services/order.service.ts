@@ -7,7 +7,7 @@ import {Order, OrderAdding} from '../interfaces/order';
 })
 export class OrderService {
 
-  private url = 'api/order';
+  private url = '/api/order';
 
   constructor(
     private httpClient: HttpClient

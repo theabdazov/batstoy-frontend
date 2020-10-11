@@ -4,8 +4,10 @@ import {HandlerErrorInterceptor} from './handler-error.interceptor';
 import {LoadingInterceptor} from './loading.interceptor';
 import {HeadersInterceptor} from './headers.interceptor';
 import {JwtInterceptor} from './jwt.interceptor';
+import {BackendUrlInterceptor} from './backend-url.interceptor';
 
 export const InterceptorProviders = [
+  {provide: HTTP_INTERCEPTORS, useClass: BackendUrlInterceptor, multi: true},
   {provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true},
   {provide: HTTP_INTERCEPTORS, useClass: HandlerErrorInterceptor, multi: true},
   {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},

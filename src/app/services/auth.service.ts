@@ -23,7 +23,7 @@ export class AuthService {
   }
 
   login(user: UserCredentials): Observable<void> {
-    return this.httpClient.post<UserWithToken>('api/auth/login', user).pipe(
+    return this.httpClient.post<UserWithToken>('/api/auth/login', user).pipe(
       map(res => {
         this.currentUser.next(res);
         this.localStorageService.setItem('authorizedUser', JSON.stringify(res));
