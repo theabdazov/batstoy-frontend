@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {User, UserCredentials, UserWithToken} from '../interfaces/user';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {LocalStorageService} from './local-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +13,10 @@ export class AuthService {
   currentUser = new BehaviorSubject<UserWithToken>(null);
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private localStorageService: LocalStorageService
   ) {
-    const tmpUser = localStorage.getItem('authorizedUser');
+    const tmpUser = this.localStorageService.getItem('authorizedUser');
     if (tmpUser != null) {
       this.currentUser.next(JSON.parse(tmpUser));
     }
@@ -24,7 +26,7 @@ export class AuthService {
     return this.httpClient.post<UserWithToken>('api/auth/login', user).pipe(
       map(res => {
         this.currentUser.next(res);
-        localStorage.setItem('authorizedUser', JSON.stringify(res));
+        this.localStorageService.setItem('authorizedUser', JSON.stringify(res));
         return null;
       })
     );
@@ -32,7 +34,7 @@ export class AuthService {
 
   logout(): void {
     this.currentUser.next(null);
-    localStorage.removeItem('authorizedUser');
+    this.localStorageService.removeItem('authorizedUser');
   }
 
 }
