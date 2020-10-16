@@ -3,7 +3,7 @@
     <i nz-icon nzType="fullscreen" nzTheme="outline"></i>
   </div>
   <div class="card__image">
-    <img [src]="product.photos[0]" alt="name">
+    <img src="{{product.photos[0] | addHostToRelativePath}}" alt="name">
   </div>
   <div class="card__name">
     <a class="card__href" [routerLink]="['/product', product.id]">{{product.name}}</a>

@@ -26,6 +26,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import {CounterModule} from '../../modules/counter/counter.module';
 import { OrderComponent } from './order/order.component';
 import {ValidatePipeModule} from '../../modules/validate-pipe/validate-pipe.module';
+import {AddHostToRelativePathModule} from '../../modules/add-host-to-relative-path/add-host-to-relative-path.module';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import {ValidatePipeModule} from '../../modules/validate-pipe/validate-pipe.modu
     ReactiveFormsModule,
     ValidatePipeModule,
     NzResultModule,
-    NzButtonModule
+    NzButtonModule,
+    AddHostToRelativePathModule
   ]
 })
 export class MainModule {

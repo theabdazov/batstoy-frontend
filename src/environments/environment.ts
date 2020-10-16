@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // обязательно должно начинатся с `http`
-  backendUrl: 'http://localhost:3000'
+  backendUrl: 'https://batstroy.kg'
 };
 
 /*

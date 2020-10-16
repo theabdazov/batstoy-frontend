@@ -15,7 +15,7 @@
     <tbody>
     <tr *ngFor="let data of basicTable.data">
       <td>{{ data.id }}</td>
-      <td><img class="product-photo" [src]="data.photos[0]" alt="Картинка"></td>
+      <td><img class="product-photo" src="{{data.photos[0] | addHostToRelativePath}}" alt="Картинка"></td>
       <td>{{ data.name }}</td>
       <td>{{ data.price}} сом</td>
       <td>

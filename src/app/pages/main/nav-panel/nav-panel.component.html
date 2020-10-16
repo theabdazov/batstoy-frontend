@@ -17,7 +17,7 @@
   <div class="popup">
     <div class="popup__list">
       <div class="item" *ngFor="let product of products">
-        <img class="item__photo" [src]="product.photos[0]" alt="photo">
+        <img class="item__photo" src="{{product.photos[0] | addHostToRelativePath}}" alt="photo">
         <div class="item__desc">
           <a class="item__product-name" [routerLink]="['/product', product.id]">{{product.name}}</a>
           <div class="item__product-count">{{cartMap[product.id]}} x <span class="item__product-price">{{product.price}} сом </span></div>
