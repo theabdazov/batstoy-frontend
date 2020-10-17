@@ -71,5 +71,9 @@
       &copy; «БатСтрой», 2020
     </div>
   </div>
-  <nz-back-top [nzVisibilityHeight]="100"></nz-back-top>
+  <nz-back-top [nzTarget]="'body'" [nzVisibilityHeight]="100" [nzTemplate]="backTopTemplate"></nz-back-top>
 </div>
+
+<ng-template #backTopTemplate>
+  <button class="backTop"><i nz-icon nzType="up" nzTheme="outline"></i></button>
+</ng-template>
