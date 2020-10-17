@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "dev:ssr": "ng run shop-frontend:serve-ssr",
     "serve:ssr": "node dist/shop-frontend/server/main.js",
-    "build:ssr": "ng build --prod && ng run shop-frontend:server:production",
+    "build:ssr": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng build --prod && ng run shop-frontend:server:production",
     "prerender": "ng run shop-frontend:prerender"
   },
   "private": true,
