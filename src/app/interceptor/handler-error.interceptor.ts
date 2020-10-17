@@ -25,7 +25,7 @@ export class HandlerErrorInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401 || error.status === 403) {
           this.notificationService.error('Авторизуйтесь заново');
-          this.router.navigate(['./authentication']);
+          this.router.navigate(['./login']);
         } else {
           if (!hideError) {
             this.notificationService.error('notification.requestError');

@@ -15,11 +15,16 @@ import {
   CloseOutline,
   FullscreenOutline,
   CopyOutline,
-  CloseCircleOutline
+  CloseCircleOutline,
+  MenuFoldOutline,
+  MinusSquareOutline,
+  LockOutline,
+  UserOutline
 } from '@ant-design/icons-angular/icons';
 
 const icons = [SearchOutline, WhatsAppOutline, TeamOutline, ShopOutline, MenuOutline, ContainerOutline, LogoutOutline, MinusOutline,
-  PlusOutline, ShoppingCartOutline, CloseOutline, FullscreenOutline, CopyOutline, CloseCircleOutline];
+  PlusOutline, ShoppingCartOutline, CloseOutline, FullscreenOutline, CopyOutline, CloseCircleOutline, MenuFoldOutline, MinusSquareOutline,
+  LockOutline, UserOutline];
 
 @NgModule({
   imports: [NzIconModule],
