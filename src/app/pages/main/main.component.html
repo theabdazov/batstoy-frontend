@@ -35,5 +35,41 @@
   <div class="content">
     <router-outlet></router-outlet>
   </div>
-  <nz-back-top [nzTarget]="container" [nzVisibilityHeight]="200"></nz-back-top>
+  <div class="footer">
+    <div class="footer-content">
+      <div class="footer__col">
+        <div class="footer__col-title">Контакты</div>
+        <div class="footer__col-item">
+          <a href="tel:+996 700 352 362">0 (700) 352 362</a>
+        </div>
+        <div class="footer__col-item">
+          <a href="tel:+996 554 374 254">0 (554) 374 254</a>
+        </div>
+        <div class="footer__col-item">
+          <a href="mailto:admin@batstoy.kg">admin@batstoy.kg</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Мы соц.сетях</div>
+        <div class="footer__col-item">
+          <a href="https://www.instagram.com/batstroy/"  target="_blank">
+            <img class="social-logo" src="assets/icons/instagram.svg" alt="instagram">
+          </a>
+          <a href="https://www.facebook.com/batstroy.kg" target="_blank">
+            <img class="social-logo" src="assets/icons/facebook.svg" alt="facebook">
+          </a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Наше мобильное приложение</div>
+        <a href="https://play.google.com/store/apps/details?id=batstroy.kg">
+          <img class="google-play-logo" src="assets/icons/google-play-badge-s.svg" alt="google-play-icon">
+        </a>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; «БатСтрой», 2020
+    </div>
+  </div>
+  <nz-back-top [nzVisibilityHeight]="100"></nz-back-top>
 </div>

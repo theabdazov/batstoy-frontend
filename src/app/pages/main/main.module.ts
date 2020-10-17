@@ -5,7 +5,7 @@ import {MainRoutingModule} from './main-routing.module';
 import {MainComponent} from './main.component';
 import {
   NzBackTopModule,
-  NzBadgeModule, NzButtonModule, NzDropDownModule, NzFormModule,
+  NzBadgeModule, NzButtonModule, NzDividerModule, NzDropDownModule, NzFormModule,
   NzIconModule,
   NzInputModule,
   NzModalModule,
@@ -63,7 +63,8 @@ import {AddHostToRelativePathModule} from '../../modules/add-host-to-relative-pa
     ValidatePipeModule,
     NzResultModule,
     NzButtonModule,
-    AddHostToRelativePathModule
+    AddHostToRelativePathModule,
+    NzDividerModule
   ]
 })
 export class MainModule {
