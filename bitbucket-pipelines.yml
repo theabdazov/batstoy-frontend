@@ -7,17 +7,9 @@ pipelines:
         caches:
           - node
         script:
-          - npm install 
-          - npm run build
-        artifacts:
-          - dist/**
-    - step:
-        name: Deploy artifacts using SCP to PROD
-        deployment: production
-        script:
-          - pipe: atlassian/scp-deploy:0.3.3
-            variables:
-              USER: $SSH_USER
-              SERVER: $SERVER
-              REMOTE_PATH: '/usr/share/nginx/html'
-              LOCAL_PATH: 'dist/shop-frontend/*'
+          - npm install
+          - npm run build:ssr
+          - npm run prerender
+          - ls
+          - ls dist
+          - ls dist/server
