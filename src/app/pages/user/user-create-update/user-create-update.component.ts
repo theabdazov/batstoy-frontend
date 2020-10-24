@@ -19,6 +19,7 @@ export class UserCreateUpdateComponent implements OnInit {
   formGroup: FormGroup;
   userId: number;
   companies: Company[] = [];
+  passwordVisible = false;
 
   constructor(
     private userService: UserService,
@@ -36,6 +37,8 @@ export class UserCreateUpdateComponent implements OnInit {
     this.userId = parseInt(this.activatedRoute.snapshot.params.id, 10);
     if (this.userId) {
       this.getUser();
+    } else {
+      this.formGroup.controls.password.setValidators(Validators.required);
     }
   }
 
@@ -62,7 +65,8 @@ export class UserCreateUpdateComponent implements OnInit {
     this.formGroup = this.fb.group({
       fullName: [null, [Validators.required]],
       phoneNumber: [null, [Validators.required]],
-      companyId: [null]
+      companyId: [null],
+      password: [null]
     });
   }
 

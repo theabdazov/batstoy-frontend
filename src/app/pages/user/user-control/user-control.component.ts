@@ -31,9 +31,10 @@ export class UserControlComponent implements OnInit {
   }
 
   delete(userId: number) {
-    this.userService.getById(userId).subscribe(
-      res => {
+    this.userService.deleteById(userId).subscribe(
+      () => {
         this.notificationService.success();
+        this.getData();
       }
     );
   }
