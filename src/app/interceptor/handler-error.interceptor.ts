@@ -28,7 +28,7 @@ export class HandlerErrorInterceptor implements HttpInterceptor {
           this.router.navigate(['./login']);
         } else {
           if (!hideError) {
-            this.notificationService.error('notification.requestError');
+            this.notificationService.error('На сервере ошибка');
           }
         }
 
