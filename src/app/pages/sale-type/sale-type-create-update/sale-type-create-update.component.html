@@ -1,0 +1,27 @@
+<h2>Типы продаж</h2>
+<form nz-form [nzLayout]="'vertical'" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <nz-form-item>
+    <nz-form-label nzRequired>Товар подается в</nz-form-label>
+    <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+      <input type="text" nz-input formControlName="name">
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired>Короткое название</nz-form-label>
+    <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+      <input type="text" nz-input formControlName="shortName">
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control>
+      <button nz-button [nzType]="'primary'">Сохранить</button>
+      <button appBack nz-button nzType="default" type="button" class="margin-left">Назад</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+
+<ng-template #errorBlock let-control>
+  {{control.errors | validate}}
+</ng-template>
+
