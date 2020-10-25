@@ -65,6 +65,7 @@
     <th>ID</th>
     <th>Наименование</th>
     <th>Компания</th>
+    <th>Товар продается в</th>
     <th>Цена</th>
     <th>Цена поставщика</th>
     <th>Категория</th>
@@ -76,8 +77,9 @@
     <td>{{ data.id }}</td>
     <td>{{ data.name }}</td>
     <td>{{ data.company?.name }}</td>
+    <td>{{ data.saleType?.name }} ({{data.saleType?.shortName}})</td>
     <td>{{ data.price }}</td>
-    <td>{{ data.ownerPrice }}</td>
+    <td>{{ data.ownerPrice}}</td>
     <td>{{ data.category?.name }}</td>
     <td>
       <button nz-button [nzSize]="'small'" [nzType]="'dashed'" [routerLink]="['../update', data.id]"> Изменить</button>

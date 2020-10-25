@@ -19,7 +19,6 @@
 }
 
 .desc__price {
-  margin-top: 18px;
   margin-bottom: 14px;
   font-size: 28px;
   font-weight: 700;
@@ -42,7 +41,6 @@
   color: #fff;
   border: none;
   padding: 0 30px;
-  margin-left: 10px;
   font-weight: 600;
   font-size: 18px;
   border-radius: 2px;
@@ -76,5 +74,16 @@
 
 .table__value {
   color: rgb(61, 70, 77);
+}
+
+.desc__sale-type {
+  font-weight: bold;
+}
+
+.short-sale-type {
+  display: flex;
+  align-items: center;
+  margin: 0 5px;
+  font-size: 15px;
 }
 

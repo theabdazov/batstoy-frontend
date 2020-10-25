@@ -45,6 +45,16 @@
   </nz-form-item>
 
   <nz-form-item>
+    <nz-form-label nzRequired>Товар продается в</nz-form-label>
+    <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+      <nz-select formControlName="saleTypeId">
+        <nz-option [nzValue]="saleType.id" [nzLabel]="saleType.name+' ('+saleType.shortName+')'"
+                   *ngFor="let saleType of saleTypes"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
     <nz-form-label>Компания</nz-form-label>
     <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
       <nz-select formControlName="companyId">
@@ -64,7 +74,8 @@
   <nz-form-item *ngFor="let characteristic of characteristics">
     <nz-form-label nzRequired>{{characteristic.name}}</nz-form-label>
     <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
-      <input type="text" nz-input [nzAutocomplete]="auto" [(ngModel)]="characteristicValueMap[characteristic.id]" [ngModelOptions]="{standalone: true}">
+      <input type="text" nz-input [nzAutocomplete]="auto" [(ngModel)]="characteristicValueMap[characteristic.id]"
+             [ngModelOptions]="{standalone: true}">
       <nz-autocomplete [nzDataSource]="characteristic.valueList" nzBackfill #auto></nz-autocomplete>
     </nz-form-control>
   </nz-form-item>

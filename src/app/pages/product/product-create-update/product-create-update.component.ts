@@ -14,6 +14,8 @@ import {ProductAdding} from '../../../interfaces/product';
 import {CharacteristicValueAdding} from '../../../interfaces/characteristic-value';
 import {Company} from '../../../interfaces/company';
 import {CompanyService} from '../../../services/company.service';
+import {SaleType} from '../../../interfaces/sale-type';
+import {SaleTypeService} from '../../../services/sale-type.service';
 
 @Component({
   selector: 'app-product-create-update',
@@ -27,6 +29,7 @@ export class ProductCreateUpdateComponent implements OnInit {
   categoryNodes: NzTreeNodeOptions[] = [];
   characteristics: Characteristic[] = [];
   companies: Company[] = [];
+  saleTypes: SaleType[] = [];
   characteristicValueMap: { [key: string]: string } = {};
   editorConfig = {
     sanitize: false,
@@ -47,7 +50,8 @@ export class ProductCreateUpdateComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private categoryService: CategoryService,
     private characteristicService: CharacteristicService,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private saleTypeService: SaleTypeService
   ) {
   }
 
@@ -55,10 +59,19 @@ export class ProductCreateUpdateComponent implements OnInit {
     this.buildForm();
     this.getCategories();
     this.getCompanies();
+    this.getSaleTypes();
     this.productId = parseInt(this.activatedRoute.snapshot.params.id, 10);
     if (this.productId) {
       this.getProduct();
     }
+  }
+
+  getSaleTypes(): void {
+    this.saleTypeService.getAll().subscribe(
+      response => {
+        this.saleTypes = response;
+      }
+    );
   }
 
   getCompanies(): void {
@@ -109,7 +122,8 @@ export class ProductCreateUpdateComponent implements OnInit {
           this.formGroup.patchValue({
             ...response,
             categoryId: response.category.id.toString(),
-            companyId: response.company ? response.company.id : null
+            companyId: response.company ? response.company.id : null,
+            saleTypeId: response.saleType ? response.saleType.id : null,
           });
           this.getCharacteristic(response.category.id);
           if (response.characteristicValues && response.characteristicValues.length) {
@@ -132,6 +146,7 @@ export class ProductCreateUpdateComponent implements OnInit {
       active: [null, [Validators.required]],
       photos: [null, [Validators.required]],
       categoryId: [null, [Validators.required]],
+      saleTypeId: [null, [Validators.required]],
       companyId: [null],
     });
 

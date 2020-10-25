@@ -8,7 +8,7 @@
   <div class="card__name">
     <a class="card__href" [routerLink]="['/product', product.id]">{{product.name}}</a>
   </div>
-  <div class="card__price">{{product.price}} Сом</div>
+  <div class="card__price">{{product.price}} Сом/{{product.saleType?.shortName}}</div>
   <div class="card__actions">
     <button class="card__btn" (click)="onClickAddToCart($event)">В корзину</button>
   </div>

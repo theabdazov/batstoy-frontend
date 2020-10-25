@@ -9,11 +9,15 @@
         <h1 class="desc__name">
           {{product.name}}
         </h1>
+        <div class="desc__sale-type">
+          Товар продается в {{product.saleType?.name}}
+        </div>
         <div class="desc__price">
-          {{product.price}} сом
+          {{product.price}} сом/{{product.saleType?.shortName}}
         </div>
         <div class="desc__btns">
           <app-counter [(value)]="count"></app-counter>
+          <div class="short-sale-type">{{product.saleType?.shortName}}</div>
           <button class="btn-add-card">В корзину</button>
         </div>
         <div class="characteristic" *ngIf="product.characteristicValues">
