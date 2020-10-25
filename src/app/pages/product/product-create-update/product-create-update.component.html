@@ -37,10 +37,19 @@
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label>Категория</nz-form-label>
+    <nz-form-label nzRequired>Категория</nz-form-label>
     <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
       <nz-tree-select [nzNodes]="categoryNodes" [nzMultiple]="false" formControlName="categoryId">
       </nz-tree-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label>Компания</nz-form-label>
+    <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+      <nz-select formControlName="companyId">
+        <nz-option [nzValue]="company.id" [nzLabel]="company.name" *ngFor="let company of companies"></nz-option>
+      </nz-select>
     </nz-form-control>
   </nz-form-item>
 

@@ -12,6 +12,8 @@ import {Characteristic} from '../../../interfaces/characteristic';
 import {CharacteristicService} from '../../../services/characteristic.service';
 import {ProductAdding} from '../../../interfaces/product';
 import {CharacteristicValueAdding} from '../../../interfaces/characteristic-value';
+import {Company} from '../../../interfaces/company';
+import {CompanyService} from '../../../services/company.service';
 
 @Component({
   selector: 'app-product-create-update',
@@ -24,6 +26,7 @@ export class ProductCreateUpdateComponent implements OnInit {
   productId: number;
   categoryNodes: NzTreeNodeOptions[] = [];
   characteristics: Characteristic[] = [];
+  companies: Company[] = [];
   characteristicValueMap: { [key: string]: string } = {};
   editorConfig = {
     sanitize: false,
@@ -43,17 +46,27 @@ export class ProductCreateUpdateComponent implements OnInit {
     private notificationService: NotificationService,
     private activatedRoute: ActivatedRoute,
     private categoryService: CategoryService,
-    private characteristicService: CharacteristicService
+    private characteristicService: CharacteristicService,
+    private companyService: CompanyService
   ) {
   }
 
   ngOnInit(): void {
     this.buildForm();
     this.getCategories();
+    this.getCompanies();
     this.productId = parseInt(this.activatedRoute.snapshot.params.id, 10);
     if (this.productId) {
       this.getProduct();
     }
+  }
+
+  getCompanies(): void {
+    this.companyService.getAll().subscribe(
+      response => {
+        this.companies = response;
+      }
+    );
   }
 
   getCharacteristic(categoryId: number): void {
@@ -93,7 +106,11 @@ export class ProductCreateUpdateComponent implements OnInit {
       response => {
         if (response) {
           this.characteristicValueMap = {};
-          this.formGroup.patchValue({...response, categoryId: response.category.id.toString()});
+          this.formGroup.patchValue({
+            ...response,
+            categoryId: response.category.id.toString(),
+            companyId: response.company ? response.company.id : null
+          });
           this.getCharacteristic(response.category.id);
           if (response.characteristicValues && response.characteristicValues.length) {
             response.characteristicValues.forEach(item => {
@@ -115,6 +132,7 @@ export class ProductCreateUpdateComponent implements OnInit {
       active: [null, [Validators.required]],
       photos: [null, [Validators.required]],
       categoryId: [null, [Validators.required]],
+      companyId: [null],
     });
 
     this.formGroup.controls.categoryId.valueChanges.subscribe(

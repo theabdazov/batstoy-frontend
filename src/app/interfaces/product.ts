@@ -1,6 +1,7 @@
 import {Pagination} from './pagination';
 import {Category} from './category';
 import {CharacteristicValue, CharacteristicValueAdding} from './characteristic-value';
+import {Company} from './company';
 
 export interface Product {
   id: number;
@@ -11,6 +12,7 @@ export interface Product {
   price: number;
   photos: string[];
   category: Category;
+  company: Company;
   characteristicValues: CharacteristicValue[];
 }
 
@@ -22,6 +24,7 @@ export interface ProductAdding {
   active: boolean;
   photos: string[];
   categoryId: number;
+  companyId: number;
   characteristicValues: CharacteristicValueAdding[];
 }
 
