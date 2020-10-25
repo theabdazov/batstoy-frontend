@@ -32,6 +32,7 @@ export interface ProductFilter extends Pagination {
   id: number;
   name: string;
   categoryIds: number[];
+  companyIds: number[];
 }
 
 

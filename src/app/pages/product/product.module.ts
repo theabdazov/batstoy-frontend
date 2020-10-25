@@ -19,6 +19,7 @@ import {LocationBackModule} from '../../modules/location-back/location-back.modu
 import {ValidatePipeModule} from '../../modules/validate-pipe/validate-pipe.module';
 import { ImagesUploadComponent } from './images-upload/images-upload.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import {NzSpaceModule} from 'ng-zorro-antd/space';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     NzModalModule,
     NzAutocompleteModule,
     FormsModule,
-    AngularEditorModule
+    AngularEditorModule,
+    NzSpaceModule
   ]
 })
 export class ProductModule { }

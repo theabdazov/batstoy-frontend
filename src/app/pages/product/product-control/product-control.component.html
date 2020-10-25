@@ -3,6 +3,55 @@
   <button nz-button [nzType]="'primary'" [nzSize]="'small'" routerLink="../create"> Добавить</button>
 </div>
 
+<div nz-row [nzGutter]="16">
+  <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="6" nzXl="6" nzXXl="6">
+    <nz-form-item>
+      <nz-form-control>
+        <input type="text" nz-input placeholder="ID" [(ngModel)]="filter.id">
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+  <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="6" nzXl="6" nzXXl="6">
+    <nz-form-item>
+      <nz-form-control>
+        <input type="text" nz-input placeholder="Названия" [(ngModel)]="filter.name">
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+  <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="6" nzXl="6" nzXXl="6">
+    <nz-form-item>
+      <nz-form-control>
+        <nz-tree-select [nzNodes]="categoryNodes" [nzMultiple]="true" [(ngModel)]="filter.categoryIds"
+                        nzPlaceHolder="Категория">
+        </nz-tree-select>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+  <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="6" nzXl="6" nzXXl="6">
+    <nz-form-item>
+      <nz-form-control>
+        <nz-select [(ngModel)]="filter.companyIds" nzMode="multiple" nzPlaceHolder="Компания">
+          <nz-option [nzValue]="company.id" [nzLabel]="company.name" *ngFor="let company of companies"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+  <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="6" nzXl="6" nzXXl="5">
+    <nz-form-item>
+      <nz-form-control>
+        <nz-space nzSize="middle">
+          <nz-space-item>
+            <button nz-button [nzType]="'primary'" (click)="getData()">Поиск</button>
+          </nz-space-item>
+          <nz-space-item>
+            <button nz-button nzType="default" (click)="clear()">Очистить фильтр</button>
+          </nz-space-item>
+        </nz-space>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+</div>
+
 <nz-table #basicTable
           [nzData]="products"
           [nzPageIndex]="filter.page"
@@ -15,7 +64,7 @@
   <tr>
     <th>ID</th>
     <th>Наименование</th>
-    <th>Краткое описание</th>
+    <th>Компания</th>
     <th>Цена</th>
     <th>Цена поставщика</th>
     <th>Категория</th>
@@ -26,7 +75,7 @@
   <tr *ngFor="let data of basicTable.data">
     <td>{{ data.id }}</td>
     <td>{{ data.name }}</td>
-    <td>{{ data.desc }}</td>
+    <td>{{ data.company?.name }}</td>
     <td>{{ data.price }}</td>
     <td>{{ data.ownerPrice }}</td>
     <td>{{ data.category?.name }}</td>
