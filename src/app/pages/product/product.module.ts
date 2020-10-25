@@ -18,6 +18,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LocationBackModule} from '../../modules/location-back/location-back.module';
 import {ValidatePipeModule} from '../../modules/validate-pipe/validate-pipe.module';
 import { ImagesUploadComponent } from './images-upload/images-upload.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { ImagesUploadComponent } from './images-upload/images-upload.component';
     NzIconModule,
     NzModalModule,
     NzAutocompleteModule,
-    FormsModule
+    FormsModule,
+    AngularEditorModule
   ]
 })
 export class ProductModule { }

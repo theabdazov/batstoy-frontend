@@ -7,9 +7,9 @@
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
-    <nz-form-label nzRequired>Краткая описания</nz-form-label>
-    <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
-      <textarea nz-input formControlName="desc"></textarea>
+    <nz-form-label nzRequired>Описания</nz-form-label>
+    <nz-form-control [nzErrorTip]="errorBlock">
+      <angular-editor formControlName="desc" [config]="editorConfig"></angular-editor>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>

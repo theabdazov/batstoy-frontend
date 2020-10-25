@@ -25,6 +25,16 @@ export class ProductCreateUpdateComponent implements OnInit {
   categoryNodes: NzTreeNodeOptions[] = [];
   characteristics: Characteristic[] = [];
   characteristicValueMap: { [key: string]: string } = {};
+  editorConfig = {
+    sanitize: false,
+    editable: true,
+    placeholder: 'Введите текст',
+    toolbarHiddenButtons: [
+      [],
+      ['insertImage'],
+      ['insertVideo'],
+    ]
+  };
 
   constructor(
     private productService: ProductService,

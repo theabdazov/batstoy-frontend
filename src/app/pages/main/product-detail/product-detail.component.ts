@@ -3,6 +3,7 @@ import {ProductDetailPublic} from '../../../interfaces/product';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProductService} from '../../../services/product.service';
 import {NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions} from '@kolkov/ngx-gallery';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'app-product-detail',
@@ -60,9 +61,9 @@ export class ProductDetailComponent implements OnInit {
         this.product = response;
         this.galleryImages = this.product.photos.map(photo => {
           return {
-            small: photo,
-            medium: photo,
-            big: photo,
+            small: `${environment.backendUrl}${photo}`,
+            medium: `${environment.backendUrl}${photo}`,
+            big: `${environment.backendUrl}${photo}`,
           };
         });
       }
