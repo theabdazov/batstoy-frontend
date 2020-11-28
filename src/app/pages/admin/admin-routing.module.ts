@@ -14,6 +14,10 @@ const routes: Routes = [
       {path: 'file', loadChildren: () => import('../file/file.module').then(m => m.FileModule)},
       {path: 'product', loadChildren: () => import('../product/product.module').then(m => m.ProductModule)},
       {path: 'sale-type', loadChildren: () => import('../sale-type/sale-type.module').then(m => m.SaleTypeModule)},
+      {
+        path: 'product-characteristic-suggest',
+        loadChildren: () => import('../product-characteristic-suggest/product-characteristic-suggest.module').then(m => m.ProductCharacteristicSuggestModule)
+      },
     ]
   },
 ];

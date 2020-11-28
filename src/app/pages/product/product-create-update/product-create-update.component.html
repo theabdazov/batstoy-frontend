@@ -71,15 +71,31 @@
   </nz-form-item>
 
   <h3>Харатеристики</h3>
-  <nz-form-item *ngFor="let characteristic of characteristics">
-    <nz-form-label nzRequired>{{characteristic.name}}</nz-form-label>
-    <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
-      <input type="text" nz-input [nzAutocomplete]="auto" [(ngModel)]="characteristicValueMap[characteristic.id]"
-             [ngModelOptions]="{standalone: true}">
-      <nz-autocomplete [nzDataSource]="characteristic.valueList" nzBackfill #auto></nz-autocomplete>
-    </nz-form-control>
-  </nz-form-item>
-
+  <ng-container *ngFor="let characteristic of characteristics.controls; index as index">
+    <div class="mb-1" nz-row [formGroup]="characteristic">
+      <nz-form-item nz-col class="ml-1">
+        <nz-form-label nzRequired>Названия</nz-form-label>
+        <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+          <input type="text" nz-input formControlName="title" [nzAutocomplete]="auto">
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-col class="ml-1">
+        <nz-form-label nzRequired>Значение</nz-form-label>
+        <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+          <input type="text" nz-input formControlName="value">
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-col class="ml-1">
+        <nz-form-label nzRequired></nz-form-label>
+        <button nz-button nzType="default" type="button" nzShape="circle" (click)="removeCharacteristic(index)">
+          <i nz-icon nzType="close" nzTheme="outline"></i>
+        </button>
+      </nz-form-item>
+    </div>
+  </ng-container>
+  <button class="mb-3" nz-button nzType="default" type="button" (click)="addCharacteristic()">
+    <i nz-icon nzType="plus" nzTheme="outline"></i>Добавить характеристику
+  </button>
 
   <nz-form-item>
     <nz-form-control>
@@ -92,5 +108,7 @@
 <ng-template #errorBlock let-control>
   {{control.errors | validate}}
 </ng-template>
+
+<nz-autocomplete [nzDataSource]="productCharacteristicSuggests" nzBackfill #auto></nz-autocomplete>
 
 

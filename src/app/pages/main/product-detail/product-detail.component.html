@@ -20,16 +20,16 @@
           <div class="short-sale-type">{{product.saleType?.shortName}}</div>
           <button class="btn-add-card">В корзину</button>
         </div>
-        <div class="characteristic" *ngIf="product.characteristicValues">
+        <div class="characteristic" *ngIf="product.characteristics">
           <h3 class="characteristic__title">Характеристики</h3>
           <div class="characteristic__table">
             <nz-table #basicTable
-                      [nzData]="product.characteristicValues"
+                      [nzData]="product.characteristics"
                       [nzFrontPagination]="false"
                       [nzShowPagination]="false">
               <tbody>
               <tr *ngFor="let data of basicTable.data" class="table__row">
-                <td class="table__name">{{data.characteristic?.name}}</td>
+                <td class="table__name">{{data.title}}</td>
                 <td class="table__value">{{data.value}}</td>
               </tr>
               </tbody>

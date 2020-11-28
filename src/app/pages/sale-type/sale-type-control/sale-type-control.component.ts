@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Company} from '../../../interfaces/company';
-import {CompanyService} from '../../../services/company.service';
 import {NotificationService} from '../../../services/notification.service';
 import {SaleType} from '../../../interfaces/sale-type';
 import {SaleTypeService} from '../../../services/sale-type.service';
@@ -12,7 +10,7 @@ import {SaleTypeService} from '../../../services/sale-type.service';
 })
 export class SaleTypeControlComponent implements OnInit {
 
-  companies: SaleType[] = [];
+  saleTypes: SaleType[] = [];
 
   constructor(
     private saleTypeService: SaleTypeService,
@@ -27,7 +25,7 @@ export class SaleTypeControlComponent implements OnInit {
   getData() {
     this.saleTypeService.getAll().subscribe(
       response => {
-        this.companies = response;
+        this.saleTypes = response;
       }
     );
   }

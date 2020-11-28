@@ -2,16 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {CategoryService} from '../../../services/category.service';
 import {CategoryNode} from '../../../interfaces/category';
 import {
-  NzContextMenuService,
-  NzDropdownMenuComponent,
-  NzFormatEmitEvent,
   NzModalService,
   NzTreeNode,
   NzTreeNodeOptions
 } from 'ng-zorro-antd';
 import {CategoryCreateUpdateComponent} from '../category-create-update/category-create-update.component';
 import {NotificationService} from '../../../services/notification.service';
-import {CharacteristicControlComponent} from '../characteristic-control/characteristic-control.component';
 
 @Component({
   selector: 'app-category-control',
@@ -91,20 +87,6 @@ export class CategoryControlComponent implements OnInit {
       },
       error => {
         this.notificationService.error('Сначала удалите все дочерные категории');
-      }
-    );
-  }
-
-  openCharacteristic(categoryId: string) {
-    this.nzModalService.create({
-      nzContent: CharacteristicControlComponent,
-      nzWidth: '800px',
-      nzComponentParams: {
-        categoryId: parseInt(categoryId, 10)
-      },
-      nzFooter: null
-    }).afterClose.subscribe(
-      (result) => {
       }
     );
   }

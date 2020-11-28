@@ -1,0 +1,19 @@
+<h2>Характеристика</h2>
+<form nz-form [nzLayout]="'vertical'" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <nz-form-item>
+    <nz-form-label nzRequired>Наименование</nz-form-label>
+    <nz-form-control nzHasFeedback [nzErrorTip]="errorBlock">
+      <input type="text" nz-input formControlName="title">
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control>
+      <button nz-button [nzType]="'primary'">Сохранить</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+
+<ng-template #errorBlock let-control>
+  {{control.errors | validate}}
+</ng-template>
+

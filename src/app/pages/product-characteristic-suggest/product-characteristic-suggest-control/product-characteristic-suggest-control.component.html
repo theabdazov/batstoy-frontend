@@ -1,0 +1,26 @@
+<div class="title">
+  <h2>Часто используемые характеристики</h2>
+  <button nz-button [nzType]="'primary'" [nzSize]="'small'" (click)="openModal()"> Добавить</button>
+</div>
+
+
+<nz-table #basicTable [nzData]="productCharacteristics" [nzShowPagination]="false" [nzFrontPagination]="false">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Название</th>
+    <th>Действия</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of basicTable.data">
+    <td>{{ data.id }}</td>
+    <td>{{ data.title }}</td>
+    <td>
+      <button nz-button [nzSize]="'small'" [nzType]="'dashed'" (click)="openModal(data)"> Изменить</button>
+      <button nz-button [nzSize]="'small'" [nzType]="'danger'" (click)="delete(data.id)">Удалить</button>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
+

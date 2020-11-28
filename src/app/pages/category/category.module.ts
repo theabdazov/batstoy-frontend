@@ -17,16 +17,13 @@ import {
 import {ReactiveFormsModule} from '@angular/forms';
 import {FileSelectModule} from '../../modules/file-select/file-select.module';
 import {ValidatePipeModule} from '../../modules/validate-pipe/validate-pipe.module';
-import {CharacteristicControlComponent} from './characteristic-control/characteristic-control.component';
-import {CharacteristicCreateUpdateComponent} from './characteristic-create-update/characteristic-create-update.component';
 
 
 @NgModule({
   declarations: [
     CategoryControlComponent,
-    CategoryCreateUpdateComponent,
-    CharacteristicControlComponent,
-    CharacteristicCreateUpdateComponent],
+    CategoryCreateUpdateComponent
+  ],
   imports: [
     CommonModule,
     CategoryRoutingModule,

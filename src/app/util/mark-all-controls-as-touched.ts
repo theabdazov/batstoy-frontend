@@ -1,17 +1,19 @@
-import {FormGroup} from '@angular/forms';
+import {AbstractControl, FormArray, FormGroup} from '@angular/forms';
 
-export function markAllControlsAsTouched(formGroup: FormGroup) {
-  Object.keys(formGroup.controls).forEach((key) => {
-    if (formGroup.controls[key] instanceof FormGroup) {
-      markAllControlsAsTouched(formGroup.controls[key] as FormGroup);
-    } else {
-      if (!formGroup.controls[key].touched || !formGroup.controls[key].dirty) {
-        formGroup.controls[key].markAsTouched({onlySelf: true});
-        formGroup.controls[key].markAsDirty({onlySelf: true});
-        formGroup.controls[key].updateValueAndValidity();
-      }
+export function markAllControlsAsTouched(abstractControl: AbstractControl) {
+  if (abstractControl instanceof FormGroup) {
+    Object.keys(abstractControl.controls).forEach((key) => {
+      markAllControlsAsTouched(abstractControl.controls[key] as FormGroup);
+    });
+    abstractControl.updateValueAndValidity();
+  } else if (abstractControl instanceof FormArray) {
+    abstractControl.controls.forEach(control => markAllControlsAsTouched(control));
+  } else {
+    if (!abstractControl.touched || !abstractControl.dirty) {
+      abstractControl.markAsTouched({onlySelf: true});
+      abstractControl.markAsDirty({onlySelf: true});
+      abstractControl.updateValueAndValidity();
     }
+  }
 
-  });
-  formGroup.updateValueAndValidity();
 }
