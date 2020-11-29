@@ -42,6 +42,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/robots.txt",
               {
                 "glob": "**/*",
                 "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
