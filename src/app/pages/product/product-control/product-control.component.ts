@@ -70,6 +70,11 @@ export class ProductControlComponent implements OnInit {
     this.getData();
   }
 
+  find(): void {
+    this.filter.page = 1;
+    this.getData();
+  }
+
   getCompanies(): void {
     this.companyService.getAll().subscribe(
       response => {
